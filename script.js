@@ -4,10 +4,14 @@ var tip = document.getElementById("tip");
 var tipAMT = document.getElementById("tipAMT");
 var total = document.getElementById("total");
 
+submit.onclick = function () {
+  event.preventDefault();
+  console.log("clicked");
+  let priceVal = price.value;
+  let tipVal = tip.value;
 
-submit.onclick = function() {
-    event.preventDefault();
-    console.log("clicked");
-    console.log(price.value);
-    console.log(tip.value)
-}
+  var tipAmount = priceVal * (tipVal / 100);
+
+  tipAMT.innerHTML = tipAmount;
+  total.innerHTML = parseInt(priceVal) + parseInt(tipAmount);
+};
